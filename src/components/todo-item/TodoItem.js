@@ -5,11 +5,11 @@ function TodoItem({ title, detail, isComplete }) {
   return (
     <>
       <div className="text-center text-sm-start">
-        <h2>{title}</h2>
-        <p>{detail}</p>
+        <h2 className="mb-2 mb-sm-3 mb-md-4 fw-bold">{title}</h2>
+        <p className="fs-5 fst-italic">{detail}</p>
         {/* <p>{isComplete ? 'completed' : 'pending'}</p> */}
       </div>
-      <div className="d-flex gap-2">
+      <div className="d-flex gap-3">
         <Button variant="primary">
           <i className="bi bi-pencil-square"></i>
         </Button>
