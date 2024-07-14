@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
 import TodoItem from '../todo-item/TodoItem';
+import AddTaskForm from '../add-task-form/AddTaskForm';
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
         ))}
       </ListGroup>
       <Button className="w-75 w-sm-50" variant="outline-primary" size="lg">Add Task</Button>
+      <AddTaskForm
+        title="Test title"
+        detail="Test detail"
+      />
     </Container>
   );
 }
