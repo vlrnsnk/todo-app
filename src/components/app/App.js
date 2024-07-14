@@ -10,6 +10,7 @@ import Header from '../header/header';
 import TodoItem from '../todo-item/TodoItem';
 import AddTaskForm from '../add-task-form/AddTaskForm';
 import EditTaskForm from '../edit-task-form/EditTaskForm';
+import Modal from '../modal/Modal';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         title="Test edit title"
         detail="Test edit detail"
       />
+      <Modal title="Watch Netflix" />
     </Container>
   );
 }
