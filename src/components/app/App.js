@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import todoList from '../../mocks/todo-list';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,18 +10,8 @@ import Header from '../header/header';
 import TodoItem from '../todo-item/TodoItem';
 import AddTaskForm from '../add-task-form/AddTaskForm';
 import EditTaskForm from '../edit-task-form/EditTaskForm';
-import ConfirmDeleteTask from '../modal/ConfirmDeleteTask';
 
 function App() {
-  const [show, setShow] = useState(false);
-
-  const handleShow = (id, title) => setShow(true);
-  const handleClose = () => setShow(false);
-
-  const handleDeleteTask = (id, title) => {
-    console.log(`Deleting task with id ${id} and title ${title}`);
-  };
-
   return (
     <Container className="d-flex flex-column align-items-center justify-content-center p-3 p-sm-4 p-md-5 col-12 col-md-10 col-xl-8 col-xxl-6">
       <Header />
@@ -37,7 +25,6 @@ function App() {
               title={title}
               detail={detail}
               isComplete={isComplete}
-              onDeleteClick={handleShow}
             />
           </ListGroupItem>
         ))}
@@ -48,7 +35,6 @@ function App() {
         title="Test edit title"
         detail="Test edit detail"
       />
-      <ConfirmDeleteTask show={show} onHide={handleClose} onConfirmDeleteClick={handleDeleteTask} />
     </Container>
   );
 }

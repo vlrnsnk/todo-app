@@ -1,7 +1,21 @@
+import { useState } from 'react';
+
 import Button from 'react-bootstrap/Button';
+
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-function TodoItem({ id, title, detail, isComplete, onDeleteClick }) {
+import ConfirmDeleteTask from '../modal/ConfirmDeleteTask';
+
+function TodoItem({ id, title, detail, isComplete }) {
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => setShow(true);
+  const handleHide = () => setShow(false);
+
+  const handleDeleteTask = (id, title) => {
+    console.log(`Deleting task with id ${id} and title ${title}`);
+  };
+
   return (
     <>
       <div className="text-center text-sm-start">
@@ -13,13 +27,22 @@ function TodoItem({ id, title, detail, isComplete, onDeleteClick }) {
         <Button variant="primary" size="lg">
           <i className="bi bi-pencil-square"></i>
         </Button>
-        <Button variant="danger" size="lg" onClick={(id, title) => onDeleteClick(id, title)}>
+        <Button variant="danger" size="lg" onClick={handleShow}>
           <i className="bi bi-trash"></i>
         </Button>
         <Button variant="success" size="lg">
           <i className="bi bi-check2-square"></i>
         </Button>
       </div>
+      {show &&
+        <ConfirmDeleteTask
+          id={id}
+          title={title}
+          show={show}
+          onHide={handleHide}
+          onConfirmDeleteClick={(id, title) => handleDeleteTask(id, title)}
+        />
+      }
     </>
   );
 }
