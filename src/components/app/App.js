@@ -1,4 +1,3 @@
-import './App.css';
 import todoList from '../../mocks/todo-list';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
