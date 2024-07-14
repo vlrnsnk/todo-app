@@ -10,13 +10,13 @@ function TodoItem({ title, detail, isComplete }) {
         {/* <p>{isComplete ? 'completed' : 'pending'}</p> */}
       </div>
       <div className="d-flex gap-3">
-        <Button variant="primary">
+        <Button variant="primary" size="lg">
           <i className="bi bi-pencil-square"></i>
         </Button>
-        <Button variant="danger">
+        <Button variant="danger" size="lg">
           <i className="bi bi-trash"></i>
         </Button>
-        <Button variant="success">
+        <Button variant="success" size="lg">
           <i className="bi bi-check2-square"></i>
         </Button>
       </div>
