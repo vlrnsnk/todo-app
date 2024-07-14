@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 
@@ -16,6 +17,8 @@ function TodoItem({ id, title, detail, isComplete }) {
     console.log(`Deleting task with id ${id} and title ${title}`);
   };
 
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="text-center text-sm-start">
@@ -24,7 +27,7 @@ function TodoItem({ id, title, detail, isComplete }) {
         {/* <p>{isComplete ? 'completed' : 'pending'}</p> */}
       </div>
       <div className="d-flex gap-3">
-        <Button variant="primary" size="lg">
+        <Button variant="primary" size="lg" onClick={() => navigate("/edit")}>
           <i className="bi bi-pencil-square"></i>
         </Button>
         <Button variant="danger" size="lg" onClick={handleShow}>
