@@ -7,6 +7,7 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
+import Header from '../header/header';
 import TodoItem from '../todo-item/TodoItem';
 import AddTaskForm from '../add-task-form/AddTaskForm';
 import EditTaskForm from '../edit-task-form/EditTaskForm';
@@ -14,7 +15,7 @@ import EditTaskForm from '../edit-task-form/EditTaskForm';
 function App() {
   return (
     <Container className="d-flex flex-column align-items-center justify-content-center p-3 p-sm-4 p-md-5 col-12 col-md-10 col-xl-8 col-xxl-6">
-      <h1 className="mb-4 mb-sm-5">ToDo App</h1>
+      <Header />
       <ListGroup className="gap-4 mb-3">
         {todoList.map(({ id, title, detail, isComplete }) => (
           <ListGroupItem
