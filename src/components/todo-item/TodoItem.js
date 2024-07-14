@@ -27,7 +27,7 @@ function TodoItem({ id, title, detail, isComplete }) {
         {/* <p>{isComplete ? 'completed' : 'pending'}</p> */}
       </div>
       <div className="d-flex gap-3">
-        <Button variant="primary" size="lg" onClick={() => navigate("/edit")}>
+        <Button variant="primary" size="lg" onClick={() => navigate(`/edit/${id}`)}>
           <i className="bi bi-pencil-square"></i>
         </Button>
         <Button variant="danger" size="lg" onClick={handleShow}>

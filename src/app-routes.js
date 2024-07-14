@@ -1,7 +1,7 @@
 const AppRoutes = {
   MAIN: "/",
   ADD: "/add",
-  EDIT: "/edit",
+  EDIT: "/edit/:id",
 };
 
 export default AppRoutes;
