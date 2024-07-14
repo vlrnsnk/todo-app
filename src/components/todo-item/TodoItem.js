@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-function TodoItem({ title, detail, isComplete }) {
+function TodoItem({ title, detail, isComplete, onDeleteClick }) {
   return (
     <>
       <div className="text-center text-sm-start">
@@ -13,7 +13,7 @@ function TodoItem({ title, detail, isComplete }) {
         <Button variant="primary" size="lg">
           <i className="bi bi-pencil-square"></i>
         </Button>
-        <Button variant="danger" size="lg">
+        <Button variant="danger" size="lg" onClick={onDeleteClick}>
           <i className="bi bi-trash"></i>
         </Button>
         <Button variant="success" size="lg">
