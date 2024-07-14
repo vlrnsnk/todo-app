@@ -9,9 +9,9 @@ function EditTaskForm({ title, detail }) {
     <Form className="w-75 w-sm-50">
       <TaskTitleFormGroup title={title} />
       <TaskDetailFormGroup detail={detail} />
-      <div className='d-flex justify-content-between'>
-        <Button className="w-25" size="lg" variant="outline-primary" type="submit">Update</Button>
-        <Button className="w-25" size="lg" variant="outline-primary" type="submit">Cancel</Button>
+      <div className='d-flex flex-column flex-sm-row gap-3 justify-content-between'>
+        <Button className="w-100 w-sm-25" size="lg" variant="success" type="submit">Update</Button>
+        <Button className="w-100 w-sm-25" size="lg" variant="danger" type="submit">Cancel</Button>
       </div>
     </Form>
   );

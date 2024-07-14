@@ -9,6 +9,7 @@ function MainPage({ todoList }) {
   return (
     <>
       <Header text="ToDo App" />
+      <Button className="w-75 w-sm-50 mb-4 mb-md-5" variant="outline-primary" size="lg">Add Task</Button>
       <ListGroup className="gap-4 mb-3">
         {todoList.map(({ id, title, detail, isComplete }) => (
           <ListGroupItem
@@ -23,7 +24,6 @@ function MainPage({ todoList }) {
           </ListGroupItem>
         ))}
       </ListGroup>
-      <Button className="w-75 w-sm-50" variant="outline-primary" size="lg">Add Task</Button>
     </>
   );
 }

@@ -9,7 +9,7 @@ function AddTaskForm() {
     <Form className="w-75 w-sm-50">
       <TaskTitleFormGroup />
       <TaskDetailFormGroup />
-      <Button className="w-100" size="lg" variant="outline-primary" type="submit">Add</Button>
+      <Button className="w-100" size="lg" variant="success" type="submit">Add</Button>
     </Form>
   );
 }
