@@ -8,7 +8,7 @@ function Header({ text, isGoBack }) {
   return (
     <div className="d-flex gap-5 align-items-center justify-content-evenly mb-4 mb-sm-5">
       {isGoBack &&
-        <Button variant="primary" onClick={() => navigate("/")}>Go Back</Button>
+        <Button variant="outline-primary" onClick={() => navigate("/")}>Go Back</Button>
       }
       <h1>{text}</h1>
     </div>
