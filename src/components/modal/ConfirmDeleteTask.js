@@ -6,7 +6,7 @@ import ModalTitle from 'react-bootstrap/ModalTitle';
 import ModalBody from 'react-bootstrap/ModalBody';
 import ModalFooter from 'react-bootstrap/ModalFooter';
 
-function ConfirmDeleteTask({ title, show, onHide }) {
+function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
   return (
     <Modal show={show} onHide={onHide}>
       <ModalDialog>
@@ -17,7 +17,7 @@ function ConfirmDeleteTask({ title, show, onHide }) {
           <p>Confirm deleting the task <span className="fst-italic fw-bold">"{title}"</span> ?</p>
         </ModalBody>
         <ModalFooter className="d-flex justify-content-evenly">
-          <Button className="" size="lg" variant="danger" onClick={onHide}>Delete</Button>
+          <Button className="" size="lg" variant="danger" onClick={(id, title) => onConfirmDeleteClick(id, title)}>Delete</Button>
           <Button className="" size="lg" variant="secondary" onClick={onHide}>Cancel</Button>
         </ModalFooter>
       </ModalDialog>
