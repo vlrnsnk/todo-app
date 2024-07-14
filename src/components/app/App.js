@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 
 import TodoItem from '../todo-item/TodoItem';
 import AddTaskForm from '../add-task-form/AddTaskForm';
+import EditTaskForm from '../edit-task-form/EditTaskForm';
 
 function App() {
   return (
@@ -28,9 +29,10 @@ function App() {
         ))}
       </ListGroup>
       <Button className="w-75 w-sm-50" variant="outline-primary" size="lg">Add Task</Button>
-      <AddTaskForm
-        title="Test title"
-        detail="Test detail"
+      <AddTaskForm/>
+      <EditTaskForm
+        title="Test edit title"
+        detail="Test edit detail"
       />
     </Container>
   );
