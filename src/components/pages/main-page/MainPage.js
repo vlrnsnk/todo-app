@@ -24,11 +24,6 @@ function MainPage({ todoList }) {
         ))}
       </ListGroup>
       <Button className="w-75 w-sm-50" variant="outline-primary" size="lg">Add Task</Button>
-      <AddTaskForm/>
-      <EditTaskForm
-        title="Test edit title"
-        detail="Test edit detail"
-      />
     </>
   );
 }

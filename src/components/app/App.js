@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import PageWrapper from '../layout/page-wrapper/PageWrapper';
 import MainPage from '../pages/main-page/MainPage';
+import AddPage from '../pages/add-page/AddPage';
+import EditPage from '../pages/edit-page/EditPage';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Routes>
         <Route path={AppRoutes.MAIN} element={<PageWrapper />}>
           <Route index element={<MainPage todoList={todoList} />} />
+          <Route path={AppRoutes.ADD} element={<AddPage />} />
+          <Route path={AppRoutes.EDIT} element={<EditPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
