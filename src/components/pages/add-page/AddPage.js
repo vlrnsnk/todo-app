@@ -1,8 +1,12 @@
+import Header from '../../header/Header';
 import AddTaskForm from "../../add-task-form/AddTaskForm";
 
 function AddPage() {
   return (
-    <AddTaskForm />
+    <>
+      <Header />
+      <AddTaskForm />
+    </>
   );
 }
 

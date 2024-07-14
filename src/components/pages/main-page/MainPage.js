@@ -2,13 +2,13 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import Button from 'react-bootstrap/Button';
 
+import Header from '../../header/Header';
 import TodoItem from '../../todo-item/TodoItem';
-import AddTaskForm from '../../add-task-form/AddTaskForm';
-import EditTaskForm from '../../edit-task-form/EditTaskForm';
 
 function MainPage({ todoList }) {
   return (
     <>
+      <Header />
       <ListGroup className="gap-4 mb-3">
         {todoList.map(({ id, title, detail, isComplete }) => (
           <ListGroupItem
