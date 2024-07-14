@@ -1,6 +1,13 @@
-function Header() {
+import Button from "react-bootstrap/Button";
+
+function Header({ text, isGoBack }) {
   return (
-    <h1 className="mb-4 mb-sm-5">ToDo App</h1>
+    <div className="d-flex gap-5 align-items-center justify-content-evenly mb-4 mb-sm-5">
+      {isGoBack &&
+        <Button className="" variant="primary">Go Back</Button>
+      }
+      <h1>{text}</h1>
+    </div>
   );
 }
 

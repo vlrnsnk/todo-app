@@ -8,7 +8,7 @@ import TodoItem from '../../todo-item/TodoItem';
 function MainPage({ todoList }) {
   return (
     <>
-      <Header />
+      <Header text="ToDo App" />
       <ListGroup className="gap-4 mb-3">
         {todoList.map(({ id, title, detail, isComplete }) => (
           <ListGroupItem

@@ -4,7 +4,7 @@ import AddTaskForm from "../../add-task-form/AddTaskForm";
 function AddPage() {
   return (
     <>
-      <Header />
+      <Header text="Add Task" isGoBack={true} />
       <AddTaskForm />
     </>
   );
