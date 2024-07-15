@@ -1,6 +1,6 @@
 from django.db import models
 
-class Task(models.Model):
+class Todo(models.Model):
     title = models.CharField(max_length=100)
     detail = models.TextField(blank=True)
     completed = models.BooleanField(default=False)
