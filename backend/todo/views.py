@@ -18,4 +18,14 @@ class TaskAPIView(APIView):
         else:
             tasks = Task.objects.all()
             serializer = TaskSerializer(tasks, many=True)
+
         return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = TaskSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+
+            return Response({'message': 'Task added successfully', 'data': serializer.data}, status=201)
+
+        return Response(serializer.errors, status=400)
