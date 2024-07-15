@@ -17,12 +17,5 @@ class TaskAPIView(APIView):
             serializer = TaskSerializer(task)
         else:
             tasks = Task.objects.all()
-            serializer = TaskSerializer(tasks)
+            serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
-
-# def home_view(request):
-#     return HttpResponse("Test")
-
-# def task_detail_view(request, task_id):
-#     obj = Task.objects.get(id=todo_id)
-#     return HttpResponse(f"<h1>Title: {obj.title}, Detail: {obj.detail}</h1>")
