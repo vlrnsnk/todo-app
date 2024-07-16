@@ -51,7 +51,7 @@ function App() {
             }
           />
           <Route path={AppRoutes.ADD} element={<AddPage />} />
-          <Route path={AppRoutes.EDIT} element={<EditPage />} />
+          <Route path={AppRoutes.EDIT} element={<EditPage todoList={tasks} />} />
         </Route>
       </Routes>
     </BrowserRouter>
