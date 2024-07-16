@@ -40,3 +40,9 @@ class TaskAPIView(APIView):
             return Response({'message': 'Task updated successfully', 'data': serializer.data})
 
         return Response(serializer.errors, status=400)
+
+    def delete(self, request, task_id, format=None):
+        task = self.get_task(task_id)
+        task.delete()
+
+        return Response({'message': 'Task deleted successfully'})
