@@ -17,7 +17,7 @@ function TodoItem({ id, title, detail, isComplete }) {
   const handleShowConfirmModal = () => setShowConfirmModal(true);
   const handleHideConfirmModal = () => setShowConfirmModal(false);
 
-  const handleDeleteTask = async (id) => {
+  const handleDeleteTask = async () => {
     await axios.delete(`http://127.0.0.1:8000/api/tasks/${id}/`)
     .then((response) => {
       console.log(response);
