@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Header from '../../header/Header';
 import TodoItem from '../../todo-item/TodoItem';
 
-function MainPage({ todoList, isLoadingTasks, isErrorLoadingTasks }) {
+function MainPage({ todoList, isLoadingTasks, isErrorLoadingTasks, onMarkAsComplete }) {
   const navigate = useNavigate();
 
   return (
@@ -48,6 +48,7 @@ function MainPage({ todoList, isLoadingTasks, isErrorLoadingTasks }) {
                     title={title}
                     detail={detail}
                     isComplete={is_completed}
+                    onMarkAsComplete={onMarkAsComplete}
                   />
                 </ListGroupItem>
               ))}

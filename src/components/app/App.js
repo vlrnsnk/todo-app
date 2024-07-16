@@ -33,6 +33,16 @@ function App() {
     }));
   };
 
+  const handleMarkTaskComplete = (id) => {
+    setTasks(tasks.map((task) => {
+      if (task.id === Number(id)) {
+        return {...task, is_completed: !task.is_completed};
+      }
+
+      return task;
+    }));
+  }
+
   useEffect(() => {
     const fetchTasks = async () => {
       await axios.get(`${apiUrl}`)
@@ -64,6 +74,7 @@ function App() {
                 todoList={tasks}
                 isLoadingTasks={isLoadingTasks}
                 isErrorLoadingTasks={isErrorLoadingTasks}
+                onMarkAsComplete={handleMarkTaskComplete}
               />
             }
           />
