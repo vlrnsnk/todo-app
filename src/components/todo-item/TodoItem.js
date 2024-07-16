@@ -11,7 +11,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import ConfirmDeleteTask from '../modal/ConfirmDeleteTask';
 
 function TodoItem({ id, title, detail, isComplete }) {
-  console.log(id);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [hasTaskBeenDeleted, setHasTaskBeenDeleted] = useState(null);
 
@@ -19,7 +18,6 @@ function TodoItem({ id, title, detail, isComplete }) {
   const handleHideConfirmModal = () => setShowConfirmModal(false);
 
   const handleDeleteTask = async (id) => {
-    console.log(id);
     await axios.delete(`http://127.0.0.1:8000/api/tasks/${id}/`)
     .then((response) => {
       console.log(response);
@@ -34,8 +32,8 @@ function TodoItem({ id, title, detail, isComplete }) {
     });
   };
 
-  const handleMarkComplete = async (id) => {
-    // console.log(`Mark task with id ${id} as complete`);
+  const handleMarkComplete = async () => {
+    console.log(`Mark task with id ${id} as complete`);
     console.log(id);
     await axios.put(`http://127.0.0.1:8000/api/tasks/${id}/`, {
         "is_completed": !isComplete
@@ -76,7 +74,7 @@ function TodoItem({ id, title, detail, isComplete }) {
         <Button
           variant="success"
           size="lg"
-          onClick={(id) => handleMarkComplete(id)}
+          onClick={() => handleMarkComplete()}
         >
           <i className="bi bi-check2-square"></i>
         </Button>
@@ -87,7 +85,7 @@ function TodoItem({ id, title, detail, isComplete }) {
           title={title}
           show={showConfirmModal}
           onHide={handleHideConfirmModal}
-          onConfirmDeleteClick={(id) => handleDeleteTask(id)}
+          onConfirmDeleteClick={() => handleDeleteTask()}
         />
       }
     </>

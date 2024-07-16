@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -13,22 +14,24 @@ import ModalFooter from 'react-bootstrap/ModalFooter';
 function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
   const [hasTaskBeenDeleted, setHasTaskBeenDeleted] = useState(null);
 
-  const handleDeleteTask = async (id) => {
-    console.log(id);
+  const navigate = useNavigate();
+
+  const handleDeleteTask = async () => {
     await axios.delete(`http://127.0.0.1:8000/api/tasks/${id}/`)
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       setHasTaskBeenDeleted(true);
-      // setTimeout(() => {
-      //   navigate("/");
-      // }, 1000);
+      onHide();
+      navigate("/");
     })
     .catch((error) => {
       setHasTaskBeenDeleted(false);
       console.log(error);
     });
   };
+
   return (
+    <>
     <Modal show={show} onHide={onHide}>
       <ModalDialog>
         <ModalHeader closeButton>
@@ -55,6 +58,10 @@ function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
         </ModalFooter>
       </ModalDialog>
     </Modal>
+    {hasTaskBeenDeleted &&
+      <p className="fs-3 text-success">Task has been deleted</p>
+    }
+    </>
   );
 }
 

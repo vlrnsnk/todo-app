@@ -21,7 +21,7 @@ function App() {
     const fetchTasks = async () => {
       await axios.get('http://127.0.0.1:8000/api/tasks/')
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           setTasks(response.data);
           setIsLoadingTasks(false);
         })
@@ -33,7 +33,7 @@ function App() {
     };
 
     fetchTasks();
-  }, []);
+  }, [tasks]);
 
   return (
     <BrowserRouter>
