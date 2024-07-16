@@ -22,9 +22,6 @@ function TodoItem({ id, title, detail, isComplete }) {
     .then((response) => {
       console.log(response);
       setHasTaskBeenDeleted(true);
-      // setTimeout(() => {
-      //   navigate("/");
-      // }, 1000);
     })
     .catch((error) => {
       setHasTaskBeenDeleted(false);
@@ -61,6 +58,7 @@ function TodoItem({ id, title, detail, isComplete }) {
           size="lg"
           onClick={() => navigate(`/edit/${id}`)}
           disabled={isComplete}
+          title="Edit task"
         >
           <i className="bi bi-pencil-square"></i>
         </Button>
@@ -68,6 +66,7 @@ function TodoItem({ id, title, detail, isComplete }) {
           variant="danger"
           size="lg"
           onClick={handleShowConfirmModal}
+          title="Delete task"
         >
           <i className="bi bi-trash"></i>
         </Button>
@@ -75,6 +74,7 @@ function TodoItem({ id, title, detail, isComplete }) {
           variant="success"
           size="lg"
           onClick={() => handleMarkComplete()}
+          title="Mark task complete"
         >
           <i className="bi bi-check2-square"></i>
         </Button>
