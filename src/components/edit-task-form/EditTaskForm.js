@@ -10,7 +10,7 @@ import TaskTitleFormGroup from '../form-groups/task-title/TaskTitle';
 import TaskDetailFormGroup from '../form-groups/task-detail/TaskDetail';
 import apiUrl from '../../api-url';
 
-function EditTaskForm({ id, title, detail }) {
+function EditTaskForm({ id, title, detail, onEditTask }) {
   const navigate = useNavigate();
 
   const [newTitle, setNewTitle] = useState(title ?? '');
@@ -28,6 +28,7 @@ function EditTaskForm({ id, title, detail }) {
     .then((response) => {
       console.log(response);
       setHasTaskBeenEdited(true);
+      onEditTask(id, newTitle, newDetail);
       setTimeout(() => {
         navigate("/");
       }, 1000);

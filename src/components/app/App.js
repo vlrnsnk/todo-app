@@ -23,6 +23,16 @@ function App() {
     setTasks([...tasks, task])
   }
 
+  const handleEditTask = (id, title, detail) => {
+    setTasks(tasks.map((task) => {
+      if (task.id === Number(id)) {
+        return {id: task.id, title, detail};
+      }
+
+      return task;
+    }));
+  };
+
   useEffect(() => {
     const fetchTasks = async () => {
       await axios.get(`${apiUrl}`)
@@ -40,6 +50,8 @@ function App() {
     fetchTasks();
   }, []);
 
+  console.log(tasks);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -56,7 +68,7 @@ function App() {
             }
           />
           <Route path={AppRoutes.ADD} element={<AddPage onAddTask={handleAddTask} />} />
-          <Route path={AppRoutes.EDIT} element={<EditPage todoList={tasks} />} />
+          <Route path={AppRoutes.EDIT} element={<EditPage todoList={tasks} onEditTask={handleEditTask} />} />
         </Route>
       </Routes>
     </BrowserRouter>

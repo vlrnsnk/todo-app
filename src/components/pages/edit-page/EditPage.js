@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Header from "../../header/Header";
 import EditTaskForm from "../../edit-task-form/EditTaskForm";
 
-function EditPage({ todoList }) {
+function EditPage({ todoList, onEditTask }) {
   const { id } = useParams();
 
   const currentTask = todoList.filter((todoItem) => todoItem.id === Number(id));
@@ -16,6 +16,7 @@ function EditPage({ todoList }) {
         id={id}
         title={title}
         detail={detail}
+        onEditTask={onEditTask}
       />
     </>
   );
