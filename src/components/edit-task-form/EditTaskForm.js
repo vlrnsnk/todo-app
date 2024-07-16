@@ -21,7 +21,7 @@ function EditTaskForm({ id, title, detail }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    await axios.put(`${apiUrl}/${id}/`, {
+    await axios.put(`${apiUrl}${id}/`, {
       "title": newTitle,
       "detail": newDetail
     })

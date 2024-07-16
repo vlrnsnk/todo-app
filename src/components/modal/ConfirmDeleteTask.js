@@ -12,16 +12,19 @@ import ModalHeader from 'react-bootstrap/ModalHeader';
 import ModalTitle from 'react-bootstrap/ModalTitle';
 import ModalBody from 'react-bootstrap/ModalBody';
 import ModalFooter from 'react-bootstrap/ModalFooter';
+import Spinner from 'react-bootstrap/Spinner';
 
 function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
   const [hasTaskBeenDeleted, setHasTaskBeenDeleted] = useState(null);
+  const [isTaskDeleting, setIsTaskDeleting] = useState(false);
 
   const navigate = useNavigate();
 
   const handleDeleteTask = async () => {
-    await axios.delete(`${apiUrl}/${id}/`)
+    setIsTaskDeleting(true);
+
+    await axios.delete(`${apiUrl}${id}/`)
     .then((response) => {
-      // console.log(response);
       setHasTaskBeenDeleted(true);
       onHide();
       navigate("/");
@@ -41,12 +44,26 @@ function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
         </ModalHeader>
         <ModalBody>
           <p>Confirm deleting the task <span className="fst-italic fw-bold">"{title}"</span> ?</p>
+          {isTaskDeleting &&
+            <>
+              <p className="mt-4 fst-italic text-center">Task is deleting... <Spinner
+                animation="border"
+                variant="primary"
+                role="status"
+                size="sm"
+              >
+                <span className="visually-hidden">Task is deleting...</span>
+              </Spinner></p>
+
+            </>
+          }
         </ModalBody>
         <ModalFooter className="d-flex justify-content-evenly">
           <Button
             size="lg"
             variant="danger"
             onClick={handleDeleteTask}
+            disabled={isTaskDeleting}
           >
             Delete
           </Button>

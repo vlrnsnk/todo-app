@@ -20,7 +20,7 @@ function AddTaskForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    await axios.post(`${apiUrl}/tasks/`, {
+    await axios.post(`${apiUrl}`, {
       "title": title,
       "detail": detail
     })

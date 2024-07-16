@@ -20,7 +20,7 @@ function TodoItem({ id, title, detail, isComplete }) {
   const handleHideConfirmModal = () => setShowConfirmModal(false);
 
   const handleDeleteTask = async () => {
-    await axios.delete(`${apiUrl}/${id}/`)
+    await axios.delete(`${apiUrl}${id}/`)
     .then((response) => {
       console.log(response);
       setHasTaskBeenDeleted(true);
@@ -34,7 +34,7 @@ function TodoItem({ id, title, detail, isComplete }) {
   const handleMarkComplete = async () => {
     console.log(`Mark task with id ${id} as complete`);
     console.log(id);
-    await axios.put(`${apiUrl}/${id}/`, {
+    await axios.put(`${apiUrl}${id}/`, {
         "is_completed": !isComplete
       })
     .then((response) => {

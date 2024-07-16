@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      await axios.get(`${apiUrl}/tasks/`)
+      await axios.get(`${apiUrl}`)
         .then((response) => {
           setTasks(response.data);
           setIsLoadingTasks(false);
