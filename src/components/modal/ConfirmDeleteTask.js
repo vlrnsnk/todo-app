@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
+import apiUrl from '../../api-url';
+
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ModalDialog from 'react-bootstrap/ModalDialog';
@@ -17,7 +19,7 @@ function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
   const navigate = useNavigate();
 
   const handleDeleteTask = async () => {
-    await axios.delete(`http://127.0.0.1:8000/api/tasks/${id}/`)
+    await axios.delete(`${apiUrl}/${id}/`)
     .then((response) => {
       // console.log(response);
       setHasTaskBeenDeleted(true);

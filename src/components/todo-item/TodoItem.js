@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
+import apiUrl from '../../api-url';
+
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 
@@ -18,7 +20,7 @@ function TodoItem({ id, title, detail, isComplete }) {
   const handleHideConfirmModal = () => setShowConfirmModal(false);
 
   const handleDeleteTask = async () => {
-    await axios.delete(`http://127.0.0.1:8000/api/tasks/${id}/`)
+    await axios.delete(`${apiUrl}/${id}/`)
     .then((response) => {
       console.log(response);
       setHasTaskBeenDeleted(true);
@@ -32,7 +34,7 @@ function TodoItem({ id, title, detail, isComplete }) {
   const handleMarkComplete = async () => {
     console.log(`Mark task with id ${id} as complete`);
     console.log(id);
-    await axios.put(`http://127.0.0.1:8000/api/tasks/${id}/`, {
+    await axios.put(`${apiUrl}/${id}/`, {
         "is_completed": !isComplete
       })
     .then((response) => {

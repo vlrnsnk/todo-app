@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 
 import TaskTitleFormGroup from '../form-groups/task-title/TaskTitle';
 import TaskDetailFormGroup from '../form-groups/task-detail/TaskDetail';
+import apiUrl from '../../api-url';
 
 function EditTaskForm({ id, title, detail }) {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function EditTaskForm({ id, title, detail }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    await axios.put(`http://127.0.0.1:8000/api/tasks/${id}/`, {
+    await axios.put(`${apiUrl}/${id}/`, {
       "title": newTitle,
       "detail": newDetail
     })

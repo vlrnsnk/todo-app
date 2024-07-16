@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 import TaskTitleFormGroup from '../form-groups/task-title/TaskTitle';
 import TaskDetailFormGroup from '../form-groups/task-detail/TaskDetail';
+import apiUrl from '../../api-url';
 
 function AddTaskForm() {
   const navigate = useNavigate();
@@ -19,12 +20,11 @@ function AddTaskForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    await axios.post('http://127.0.0.1:8000/api/tasks/', {
+    await axios.post(`${apiUrl}/tasks/`, {
       "title": title,
       "detail": detail
     })
     .then((response) => {
-      console.log(response);
       setHasTaskBeenAdded(true);
       setTimeout(() => {
         navigate("/");

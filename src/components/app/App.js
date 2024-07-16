@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 
 import AppRoutes from '../../app-routes';
+import apiUrl from '../../api-url';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,9 +20,8 @@ function App() {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      await axios.get('http://127.0.0.1:8000/api/tasks/')
+      await axios.get(`${apiUrl}/tasks/`)
         .then((response) => {
-          // console.log(response.data);
           setTasks(response.data);
           setIsLoadingTasks(false);
         })
