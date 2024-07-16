@@ -33,7 +33,6 @@ function App() {
     };
 
     fetchTasks();
-    // setTasks(todoList);
   }, []);
 
   return (
