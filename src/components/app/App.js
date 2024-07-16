@@ -14,6 +14,7 @@ import EditPage from '../pages/edit-page/EditPage';
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [isLoadingTasks, setIsLoadingTasks] = useState(true);
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -21,6 +22,7 @@ function App() {
         .then((response) => {
           console.log(response.data);
           setTasks(response.data);
+          setIsLoadingTasks(false);
         })
         .catch((error) => {
           console.log(error);
@@ -36,7 +38,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path={AppRoutes.MAIN} element={<PageWrapper />}>
-          <Route index element={<MainPage todoList={tasks} />} />
+          <Route index element={<MainPage todoList={tasks} isLoadingTasks={isLoadingTasks} />} />
           <Route path={AppRoutes.ADD} element={<AddPage />} />
           <Route path={AppRoutes.EDIT} element={<EditPage />} />
         </Route>
