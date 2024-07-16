@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Header from '../../header/Header';
 import TodoItem from '../../todo-item/TodoItem';
 
-function MainPage({ todoList, isLoadingTasks }) {
+function MainPage({ todoList, isLoadingTasks, isErrorLoadingTasks }) {
   const navigate = useNavigate();
 
   return (
@@ -25,7 +25,10 @@ function MainPage({ todoList, isLoadingTasks }) {
             <span className="visually-hidden">Loading tasks...</span>
           </Spinner>
         </> :
-        (
+        isErrorLoadingTasks ?
+          <>
+            <p className="fs-5 text-danger">Error loading tasks</p>
+          </> :
           <>
             <Button
               className="w-75 w-sm-50 mb-4 mb-md-5"
@@ -50,7 +53,6 @@ function MainPage({ todoList, isLoadingTasks }) {
               ))}
             </ListGroup>
           </>
-        )
       }
     </>
   );
