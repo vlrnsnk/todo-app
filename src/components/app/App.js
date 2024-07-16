@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 
-import todoList from '../../mocks/todo-list';
 import AppRoutes from '../../app-routes';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,7 +11,6 @@ import PageWrapper from '../layout/page-wrapper/PageWrapper';
 import MainPage from '../pages/main-page/MainPage';
 import AddPage from '../pages/add-page/AddPage';
 import EditPage from '../pages/edit-page/EditPage';
-import axios from 'axios';
 
 function App() {
   const [tasks, setTasks] = useState([]);
