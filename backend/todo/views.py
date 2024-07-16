@@ -16,7 +16,7 @@ class TaskAPIView(APIView):
             task = self.get_task(task_id)
             serializer = TaskSerializer(task)
         else:
-            tasks = Task.objects.all()
+            tasks = Task.objects.order_by('id').all()
             serializer = TaskSerializer(tasks, many=True)
 
         return Response(serializer.data)
