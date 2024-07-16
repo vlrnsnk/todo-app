@@ -11,6 +11,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import ConfirmDeleteTask from '../modal/ConfirmDeleteTask';
 
 function TodoItem({ id, title, detail, isComplete }) {
+  console.log(id);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [hasTaskBeenDeleted, setHasTaskBeenDeleted] = useState(null);
 
@@ -33,8 +34,18 @@ function TodoItem({ id, title, detail, isComplete }) {
     });
   };
 
-  const handleMarkComplete = (id) => {
-    console.log(`Mark task with id ${id} as complete`);
+  const handleMarkComplete = async (id) => {
+    // console.log(`Mark task with id ${id} as complete`);
+    console.log(id);
+    await axios.put(`http://127.0.0.1:8000/api/tasks/${id}/`, {
+        "is_completed": !isComplete
+      })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
 
   const navigate = useNavigate();
@@ -65,7 +76,7 @@ function TodoItem({ id, title, detail, isComplete }) {
         <Button
           variant="success"
           size="lg"
-          onClick={() => handleMarkComplete(id)}
+          onClick={(id) => handleMarkComplete(id)}
         >
           <i className="bi bi-check2-square"></i>
         </Button>
