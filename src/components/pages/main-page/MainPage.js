@@ -22,15 +22,15 @@ function MainPage({ todoList }) {
         Add Task
       </Button>
       <ListGroup className="gap-4 mb-3">
-        {todoList.map(({ id, title, detail, isComplete }) => (
+        {todoList.map(({ id, title, detail, is_completed }) => (
           <ListGroupItem
-            className={`d-flex flex-column flex-sm-row gap-1 gap-sm-3 gap-md-5 align-items-center justify-content-between border border-secondary rounded shadow p-3 p-sm-4 mb-2 mb-sm-3 mb-md-4${isComplete ? ' bg-secondary' : ''}`}
+            className={`d-flex flex-column flex-sm-row gap-1 gap-sm-3 gap-md-5 align-items-center justify-content-between border border-secondary rounded shadow p-3 p-sm-4 mb-2 mb-sm-3 mb-md-4${is_completed ? ' bg-secondary' : ''}`}
             key={id}>
             <TodoItem
               id={id}
               title={title}
               detail={detail}
-              isComplete={isComplete}
+              isComplete={is_completed}
             />
           </ListGroupItem>
         ))}
