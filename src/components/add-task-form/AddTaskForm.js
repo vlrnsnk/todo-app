@@ -9,7 +9,7 @@ import TaskTitleFormGroup from '../form-groups/task-title/TaskTitle';
 import TaskDetailFormGroup from '../form-groups/task-detail/TaskDetail';
 import apiUrl from '../../api-url';
 
-function AddTaskForm() {
+function AddTaskForm({ onAddTask }) {
   const navigate = useNavigate();
 
   const [title, setTitle] = useState('');
@@ -26,6 +26,8 @@ function AddTaskForm() {
     })
     .then((response) => {
       setHasTaskBeenAdded(true);
+      const id = response.data.data.id;
+      onAddTask(id, title, detail);
       setTimeout(() => {
         navigate("/");
       }, 1000);

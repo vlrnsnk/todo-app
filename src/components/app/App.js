@@ -18,6 +18,11 @@ function App() {
   const [isLoadingTasks, setIsLoadingTasks] = useState(true);
   const [isErrorLoadingTasks, setIsErrorLoadingTasks] = useState(false);
 
+  const handleAddTask = (id, title, detail) => {
+    const task = {id, title, detail};
+    setTasks([...tasks, task])
+  }
+
   useEffect(() => {
     const fetchTasks = async () => {
       await axios.get(`${apiUrl}`)
@@ -33,7 +38,7 @@ function App() {
     };
 
     fetchTasks();
-  }, [tasks]);
+  }, []);
 
   return (
     <BrowserRouter>
@@ -50,7 +55,7 @@ function App() {
               />
             }
           />
-          <Route path={AppRoutes.ADD} element={<AddPage />} />
+          <Route path={AppRoutes.ADD} element={<AddPage onAddTask={handleAddTask} />} />
           <Route path={AppRoutes.EDIT} element={<EditPage todoList={tasks} />} />
         </Route>
       </Routes>

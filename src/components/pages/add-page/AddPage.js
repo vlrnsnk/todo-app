@@ -1,11 +1,11 @@
 import Header from '../../header/Header';
 import AddTaskForm from "../../add-task-form/AddTaskForm";
 
-function AddPage() {
+function AddPage({ onAddTask }) {
   return (
     <>
       <Header text="Add Task" isGoBack={true} />
-      <AddTaskForm />
+      <AddTaskForm onAddTask={onAddTask} />
     </>
   );
 }
