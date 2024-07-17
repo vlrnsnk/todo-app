@@ -7,6 +7,8 @@ import apiUrl from '../../api-url';
 
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -45,32 +47,62 @@ function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTas
         <p className="fs-5 fst-italic">{detail}</p>
       </div>
       <div className="d-flex gap-3">
-        <Button
-          variant="primary"
-          size="lg"
-          onClick={() => navigate(`/edit/${id}`)}
-          disabled={isComplete}
-          title="Edit task"
+        <OverlayTrigger
+          key={`edit-${id}`}
+          placement="top"
+          overlay={
+            <Tooltip id={`edit-${id}`}>
+              Edit task
+            </Tooltip>
+          }
         >
-          <i className="bi bi-pencil-square"></i>
-        </Button>
-        <Button
-          variant="danger"
-          size="lg"
-          onClick={handleShowConfirmModal}
-          title="Delete task"
+          <Button
+            variant="primary"
+            size="lg"
+            onClick={() => navigate(`/edit/${id}`)}
+            disabled={isComplete}
+            title="Edit task"
+          >
+            <i className="bi bi-pencil-square"></i>
+          </Button>
+        </OverlayTrigger>
+        <OverlayTrigger
+          key={`delete-${id}`}
+          placement="top"
+          overlay={
+            <Tooltip id={`delete-${id}`}>
+              Delete task
+            </Tooltip>
+          }
         >
-          <i className="bi bi-trash"></i>
-        </Button>
-        <Button
-          variant="success"
-          size="lg"
-          onClick={() => handleMarkComplete()}
-          title="Mark task complete"
-          disabled={isMarkingTaskComplete}
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={handleShowConfirmModal}
+            title="Delete task"
+          >
+            <i className="bi bi-trash"></i>
+          </Button>
+        </OverlayTrigger>
+        <OverlayTrigger
+          key={`mark-${id}`}
+          placement="top"
+          overlay={
+            <Tooltip id={`mark-${id}`}>
+              Mark complete
+            </Tooltip>
+          }
         >
-          <i className="bi bi-check2-square"></i>
-        </Button>
+          <Button
+            variant="success"
+            size="lg"
+            onClick={() => handleMarkComplete()}
+            title="Mark task complete"
+            disabled={isMarkingTaskComplete}
+          >
+            <i className="bi bi-check2-square"></i>
+          </Button>
+        </OverlayTrigger>
       </div>
       {showConfirmModal &&
         <ConfirmDeleteTask
