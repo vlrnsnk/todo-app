@@ -14,11 +14,14 @@ import ConfirmDeleteTask from '../modal/ConfirmDeleteTask';
 
 function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTask }) {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [isMarkingTaskComplete, setIsMarkingTaskComplete] = useState(false);
 
   const handleShowConfirmModal = () => setShowConfirmModal(true);
   const handleHideConfirmModal = () => setShowConfirmModal(false);
 
   const handleMarkComplete = async () => {
+    setIsMarkingTaskComplete(true);
+
     await axios.put(`${apiUrl}${id}/`, {
         "is_completed": !isComplete
       })
@@ -28,6 +31,8 @@ function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTas
     .catch((error) => {
       console.log(error);
     });
+
+    setIsMarkingTaskComplete(false);
   };
 
   const navigate = useNavigate();
@@ -62,6 +67,7 @@ function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTas
           size="lg"
           onClick={() => handleMarkComplete()}
           title="Mark task complete"
+          disabled={isMarkingTaskComplete}
         >
           <i className="bi bi-check2-square"></i>
         </Button>
