@@ -89,7 +89,7 @@ function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTas
           placement="top"
           overlay={
             <Tooltip id={`mark-${id}`}>
-              Mark complete
+              {isComplete ? "Unmark" : "Mark"} complete
             </Tooltip>
           }
         >
