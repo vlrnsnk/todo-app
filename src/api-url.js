@@ -1,3 +1,3 @@
-const apiUrl = 'http://127.0.0.1:8000/api/tasks/'
+const apiUrl = 'http://3.17.191.210:8000/api/tasks/'
 
 export default apiUrl;
