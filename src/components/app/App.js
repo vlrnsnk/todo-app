@@ -43,6 +43,14 @@ function App() {
     }));
   }
 
+  const handleDeleteTask = (id) => {
+    console.log('handle dlerte');
+    setTasks(
+      tasks.filter((task) => {
+        console.log(task.id, id);
+        return task.id !== Number(id);
+    }))};
+
   useEffect(() => {
     const fetchTasks = async () => {
       await axios.get(`${apiUrl}`)
@@ -75,6 +83,7 @@ function App() {
                 isLoadingTasks={isLoadingTasks}
                 isErrorLoadingTasks={isErrorLoadingTasks}
                 onMarkAsComplete={handleMarkTaskComplete}
+                onDeleteTask={handleDeleteTask}
               />
             }
           />

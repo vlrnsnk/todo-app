@@ -25,6 +25,7 @@ function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
 
     await axios.delete(`${apiUrl}${id}/`)
     .then((response) => {
+      onConfirmDeleteClick(id);
       setHasTaskBeenDeleted(true);
       onHide();
       navigate("/");
@@ -45,17 +46,17 @@ function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
         <ModalBody>
           <p>Confirm deleting the task <span className="fst-italic fw-bold">"{title}"</span> ?</p>
           {isTaskDeleting &&
-            <>
-              <p className="mt-4 fst-italic text-center">Task is deleting... <Spinner
+            <div className="d-flex gap-5">
+              <p className="mt-4 fst-italic text-center">Task is deleting... </p>
+              <Spinner
                 animation="border"
                 variant="primary"
                 role="status"
                 size="sm"
               >
                 <span className="visually-hidden">Task is deleting...</span>
-              </Spinner></p>
-
-            </>
+              </Spinner>
+            </div>
           }
         </ModalBody>
         <ModalFooter className="d-flex justify-content-evenly">

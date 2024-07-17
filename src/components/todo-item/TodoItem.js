@@ -12,7 +12,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import ConfirmDeleteTask from '../modal/ConfirmDeleteTask';
 
-function TodoItem({ id, title, detail, isComplete, onMarkAsComplete }) {
+function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTask }) {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [hasTaskBeenDeleted, setHasTaskBeenDeleted] = useState(null);
 
@@ -22,6 +22,8 @@ function TodoItem({ id, title, detail, isComplete, onMarkAsComplete }) {
   const handleDeleteTask = async () => {
     await axios.delete(`${apiUrl}${id}/`)
     .then((response) => {
+      onDeleteTask(id);
+      console.log('tetet');
       setHasTaskBeenDeleted(true);
     })
     .catch((error) => {
@@ -85,7 +87,7 @@ function TodoItem({ id, title, detail, isComplete, onMarkAsComplete }) {
           title={title}
           show={showConfirmModal}
           onHide={handleHideConfirmModal}
-          onConfirmDeleteClick={() => handleDeleteTask()}
+          onConfirmDeleteClick={onDeleteTask}
         />
       }
     </>
