@@ -13,7 +13,7 @@ function MainPage({ todoList, isLoadingTasks, isErrorLoadingTasks, onMarkAsCompl
 
   return (
     <>
-      <Header text="ToDo App" />
+      <Header text="Task Maestro" />
       {isLoadingTasks ?
         <>
           <p className="fs-5">Loading tasks...</p>
