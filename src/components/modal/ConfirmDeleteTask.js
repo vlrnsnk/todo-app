@@ -38,7 +38,7 @@ function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
 
   return (
     <>
-    <Modal show={show} onHide={onHide}>
+    <Modal show={true} onHide={onHide}>
       <ModalDialog>
         <ModalHeader closeButton>
           <ModalTitle>Are You sure?</ModalTitle>
@@ -46,7 +46,7 @@ function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
         <ModalBody>
           <p>Confirm deleting the task <span className="fst-italic fw-bold">"{title}"</span> ?</p>
           {isTaskDeleting &&
-            <div className="d-flex gap-5">
+            <div className="d-flex gap-3 justify-content-center align-items-baseline">
               <p className="mt-4 fst-italic text-center">Task is deleting... </p>
               <Spinner
                 animation="border"
