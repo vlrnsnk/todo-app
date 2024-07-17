@@ -43,8 +43,8 @@ function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTas
     <>
       <div className="text-center text-sm-start">
         {isComplete && <Badge bg="success" className="mb-3">Completed</Badge>}
-        <h2 className="mb-2 mb-sm-3 mb-md-4 fw-bold">{title}</h2>
-        <p className="fs-5 fst-italic">{detail}</p>
+        <h2 className={`mb-2 mb-sm-3 mb-md-4 fw-bold${isComplete && " text-decoration-line-through"}`}>{title}</h2>
+        <p className={`fs-5 fst-italic${isComplete && " text-decoration-line-through"}`}>{detail}</p>
       </div>
       <div className="d-flex gap-3">
         <OverlayTrigger
@@ -57,7 +57,7 @@ function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTas
           }
         >
           <Button
-            variant="primary"
+            variant="outline-primary"
             size="lg"
             onClick={() => navigate(`/edit/${id}`)}
             disabled={isComplete}
@@ -76,7 +76,7 @@ function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTas
           }
         >
           <Button
-            variant="danger"
+            variant="outline-danger"
             size="lg"
             onClick={handleShowConfirmModal}
             title="Delete task"
@@ -94,7 +94,7 @@ function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTas
           }
         >
           <Button
-            variant="success"
+            variant="outline-success"
             size="lg"
             onClick={() => handleMarkComplete()}
             title="Mark task complete"

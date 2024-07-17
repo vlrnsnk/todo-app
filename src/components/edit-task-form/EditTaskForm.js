@@ -75,7 +75,7 @@ function EditTaskForm({ id, title, detail, onEditTask }) {
           <Button
             className="w-100 w-sm-25"
             size="lg"
-            variant="success"
+            variant="outline-success"
             type="submit"
             disabled={taskIsEditing}
           >
@@ -84,7 +84,7 @@ function EditTaskForm({ id, title, detail, onEditTask }) {
           <Button
             className="w-100 w-sm-25"
             size="lg"
-            variant="danger"
+            variant="outline-danger"
             type="submit"
             onClick={() => navigate("/")}
             disabled={taskIsEditing}

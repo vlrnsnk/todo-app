@@ -62,7 +62,7 @@ function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
         <ModalFooter className="d-flex justify-content-evenly">
           <Button
             size="lg"
-            variant="danger"
+            variant="outline-danger"
             onClick={handleDeleteTask}
             disabled={isTaskDeleting}
           >
@@ -70,7 +70,7 @@ function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
           </Button>
           <Button
             size="lg"
-            variant="secondary"
+            variant="outline-secondary"
             onClick={onHide}
           >
             Cancel

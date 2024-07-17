@@ -74,7 +74,7 @@ function AddTaskForm({ onAddTask }) {
           <Button
             className="w-100"
             size="lg"
-            variant="success"
+            variant="outline-success"
             type="submit"
             disabled={taskIsAdding}
           >
