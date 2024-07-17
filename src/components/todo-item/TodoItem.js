@@ -14,30 +14,15 @@ import ConfirmDeleteTask from '../modal/ConfirmDeleteTask';
 
 function TodoItem({ id, title, detail, isComplete, onMarkAsComplete, onDeleteTask }) {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
-  const [hasTaskBeenDeleted, setHasTaskBeenDeleted] = useState(null);
 
   const handleShowConfirmModal = () => setShowConfirmModal(true);
   const handleHideConfirmModal = () => setShowConfirmModal(false);
-
-  const handleDeleteTask = async () => {
-    await axios.delete(`${apiUrl}${id}/`)
-    .then((response) => {
-      onDeleteTask(id);
-      console.log('tetet');
-      setHasTaskBeenDeleted(true);
-    })
-    .catch((error) => {
-      setHasTaskBeenDeleted(false);
-      console.log(error);
-    });
-  };
 
   const handleMarkComplete = async () => {
     await axios.put(`${apiUrl}${id}/`, {
         "is_completed": !isComplete
       })
     .then((response) => {
-      console.log(response);
       onMarkAsComplete(id);
     })
     .catch((error) => {

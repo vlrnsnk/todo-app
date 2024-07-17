@@ -44,12 +44,8 @@ function App() {
   }
 
   const handleDeleteTask = (id) => {
-    console.log('handle dlerte');
-    setTasks(
-      tasks.filter((task) => {
-        console.log(task.id, id);
-        return task.id !== Number(id);
-    }))};
+    setTasks(tasks.filter((task) => task.id !== Number(id)));
+  };
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -67,8 +63,6 @@ function App() {
 
     fetchTasks();
   }, []);
-
-  console.log(tasks);
 
   return (
     <BrowserRouter>
