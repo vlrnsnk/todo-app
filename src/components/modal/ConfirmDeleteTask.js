@@ -38,7 +38,7 @@ function ConfirmDeleteTask({ id, title, show, onHide, onConfirmDeleteClick }) {
 
   return (
     <>
-    <Modal show={true} onHide={onHide}>
+    <Modal centered show={true} onHide={onHide}>
       <ModalDialog>
         <ModalHeader closeButton>
           <ModalTitle>Are You sure?</ModalTitle>
