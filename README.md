@@ -17,18 +17,18 @@ Tasks Maestro is a full-stack web application for managing tasks, built with Rea
   - **PUT /api/tasks/<task_id>/** - Edit existing task by its id
   - **DELETE /api/tasks/<task_id>/** - Delete task by its id
 ### Technology Stack:
-#### Frontend:
+#### Front End:
   - React
   - Bootstrap
   - Hosted on AWS S3 and distributed via AWS CloudFront
-#### Backend:
+#### Back End:
   - Django Rest Framework
   - Supabase PostgreSQL
   - Deployed on AWS EC2
 
 ## Deployment
 
-### Frontend Deployment
+### Front End Deployment
 
 1. Build Setup:
 
@@ -48,7 +48,7 @@ npm run build
 - Upload the build artifacts (`build` folder) to AWS S3 bucket.
 - Configure AWS CloudFront to serve the static content from the S3 bucket.
 
-### Backend Deployment
+### Back End Deployment
 
 1. Setup Environment:
 - Set up a virtual environment and activate it.
