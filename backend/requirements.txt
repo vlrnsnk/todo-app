@@ -1,0 +1,4 @@
+django
+django-rest-Framework
+psycopg2
+django-corsheaders
