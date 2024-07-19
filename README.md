@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Tasks Maestro
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tasks Maestro is a full-stack web application for managing tasks, built with React, Bootstrap, Django Rest Framework, and Supabase PostgreSQL. It allows user to list, add, edit, mark complete and delete tasks seamlessly.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Task Management:
+    - List tasks with details
+    - Add new tasks
+    - Edit existing tasks
+    - Mark tasks complete
+    - Delete tasks
+- Technology Stack:
+    - Frontend:
+        - React
+        - Bootstrap
+        - Hosted on AWS S3 and distributed via AWS CloudFront
+    - Backend:
+        - Django Rest Framework
+        - Supabase PostgreSQL
+        - Deployed on AWS EC2 within a private VPC
 
-### `npm start`
+## Deployment
+
+### Frontend Deployment
+
+1. Build Setup:
+
+```bash
+# Install dependencies
+npm install
+
+# Compiles and hot-reloads for development
+npm start
+
+# Compiles and minifies for production
+npm run build
+```
+
+2. Deployment to AWS:
+
+- Upload the build artifacts (`build` folder) to AWS S3 bucket.
+- Configure AWS CloudFront to serve the static content from the S3 bucket.
+
+### Backend Deployment
+
+1. Setup Environment:
+- Set up a virtual environment and activate it.
+- Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+2. Database Configuration:
+- Set up a Supabase PostgreSQL database instance.
+- Configure database settings in `settings.py`:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',
+        'USER': 'your_database_user',
+        'PASSWORD': 'your_database_password',
+        'HOST': 'database_host_url',
+        'PORT': 'database_port',
+    }
+}
+```
+
+3. Run Django Server:
+- Start the Django server:
+```bash
+python manage.py runserver
+```
+
+4. Deployment to AWS EC2:
+- Provision an EC2 instance within a private VPC.
+- Deploy the Django application using a WSGI server (e.g., Gunicorn) on the EC2 instance.
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshots
 
-### `npm test`
+- Dashboard showing task list
+- Task detail view with edit option
+- Adding a new task interface
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contributing
 
-### `npm run build`
+Contributions are welcome! Please fork this repository and submit a pull request with your changes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## License
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Acknowledgments
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Built using React, Django, and Supabase PostgreSQL.
+- Deployed on AWS for scalability and reliability.
