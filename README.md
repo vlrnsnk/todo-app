@@ -10,6 +10,12 @@ Tasks Maestro is a full-stack web application for managing tasks, built with Rea
   - Edit existing tasks
   - Mark tasks complete
   - Delete tasks
+### API Endpoints
+  - **GET /api/tasks/** - List all tasks
+  - **GET /api/tasks/<task_id>/** - Get task by its id
+  - **POST /api/tasks/** - Add new task
+  - **PUT /api/tasks/<task_id>/** - Edit existing task by its id
+  - **DELETE /api/tasks/<task_id>/** - Delete task by its id
 ### Technology Stack:
 #### Frontend:
   - React
