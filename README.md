@@ -18,7 +18,7 @@ Tasks Maestro is a full-stack web application for managing tasks, built with Rea
 #### Backend:
   - Django Rest Framework
   - Supabase PostgreSQL
-  - Deployed on AWS EC2 within a private VPC
+  - Deployed on AWS EC2
 
 ## Deployment
 
@@ -85,7 +85,7 @@ python manage.py runserver
 ```
 
 5. Deployment to AWS EC2:
-- Provision an EC2 instance within a private VPC.
+- Provision an EC2 instance.
 - Deploy the Django application using a Git clone on the EC2 instance.
 
 Runs the app in the development mode.\
